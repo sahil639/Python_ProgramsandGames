@@ -10,4 +10,4 @@ async def on_message(message):
               await message.channel.send("get spammed normie")
 
 
-client.run('ODI0ODgwMjM2Njg0MTE2MDMw.YF1zlQ.Ns4H9Wt9QyfFL7KH6xePf6W4rlI')              
+client.run('ODI0ODgwMjM2Njg0MTE2MDMw.YF1zl6W4rlI')              
