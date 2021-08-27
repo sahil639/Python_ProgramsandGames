@@ -16,3 +16,9 @@ l3.place(x=176,y=130)
 textin = StringVar()
 e1 = Entry(win, width=300, textvariable=textin)
 e1.place(x=100,y=160)
+
+b1 =Button(win, text = 'Just this')
+b1.place(x=20, y=200)
+
+list = Listbox(win, width=20, height=3)
+list.place(x=150, y= 230)
