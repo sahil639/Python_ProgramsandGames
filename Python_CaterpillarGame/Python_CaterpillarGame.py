@@ -48,12 +48,51 @@ def game_over():
     leaf.color('yellow')
     t.penup()
     t.hideturtle()
-    t.write('GAME OVER!' align='center', font=('Arial', 30, 'normal'))
+    t.write('GAME OVER!' ,align='center', font=('Arial', 30, 'normal'))
 
 
-def display_score():
+def display_score(current_score):
    score_turtle.clear()
    score_turtle.penup()
    x = (t.window_width()/2) -50
    y = (t.window_height()/2) -50
    score_turtle.write(str(current_score), align ='right',font=('Arial',40, 'normal') )
+
+def start_game():
+   global game_started
+   if game_started:
+       return
+   game_started = True
+   score = 0
+   text_turtle.clear()
+
+
+   caterpillar_speed =2
+   caterpillar_length = 3
+   caterpillar.shapesize(1,caterpillar_length,1)
+   caterpillar.showturtle()
+   display_score(score)
+   place_leaf()
+   
+   while True:
+       caterpillar.forward(caterpillar_speed)
+       if caterpillar.distance(leaf) < 20:
+           place_leaf()
+           caterpillar_length = caterpillar_length + 1
+           caterpillar.shapesize(1,caterpillar_length,1)
+           caterpillar_speed = caterpillar_speed + 1
+           score = score + 10
+           display_score(score)
+       if outside_window():
+            game_over
+            break
+
+
+
+
+
+t.onkey(start_game, 'space'
+
+)
+t.listen
+t.mainloop()
