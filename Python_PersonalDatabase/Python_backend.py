@@ -15,4 +15,24 @@ def insert(date , earnings , excercise , study, diet, python):
     conn.close()
 
 
-insert('1-2-2019',200, 'no excercise', 'no study', 'diet taken' , 'did python')
+
+def view():
+    conn = sqlite3.connect('routine.db')
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM routine" )
+    rows = cur.fetchall()
+    conn.commit()
+    conn.close()
+    return rows
+
+def delete(id):
+    conn = sqlite3.connect('routine.db')
+    cur = conn.cursor()
+    cur.execute("DELETE FROM routine WHERE id = ? ", (id,))
+    conn.commit()
+    conn.close()
+
+
+delete(2)
+
+# insert('2-2-2019',200, 'no excercise', 'no study', 'diet taken' , 'did python')
