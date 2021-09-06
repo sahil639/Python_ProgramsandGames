@@ -32,7 +32,14 @@ def delete(id):
     conn.commit()
     conn.close()
 
-
-delete(2)
+def search(date='' , earnings='' , excercise='' , study='', diet='', python=''):
+    conn = sqlite3.connect('routine.db')
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM routine" )
+    rows = cur.fetchall()
+    conn.commit()
+    conn.close()
+    return rows
+    
 
 # insert('2-2-2019',200, 'no excercise', 'no study', 'diet taken' , 'did python')
