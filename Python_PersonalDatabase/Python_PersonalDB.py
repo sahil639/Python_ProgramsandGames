@@ -1,10 +1,19 @@
 from tkinter import *
-
+import Python_backend
 
 def get_selected_row():
     pass
 
 
+def view_command():
+    list.delete(0, END)
+    for row in Python_backend.view():
+        list.insert(END, row)
+
+def search_command():
+    list.delete(0, END)
+    for row in Python_backend.search(date_text.get(),earnings_text.get(),excercise_text.get(),study_text.get(),diet_text.get(),python_text.get()):
+        list.insert(END, row)
 
 win = Tk()
 win.wm_title("My Routine Database")
@@ -57,13 +66,13 @@ list.bind('<ListBoxSelection>',get_selected_row)
 b1 = Button(win, text= 'ADD', widh=12,pady=5)
 b1.grid(row=3, column=3)
 
-b2 = Button(win, text= 'Search', widh=12,pady=5)
+b2 = Button(win, text= 'Search', widh=12,pady=5, command=search_command)
 b2.grid(row=4, column=3)
 
 b3 = Button(win, text= 'Delete Date', widh=12,pady=5)
 b3.grid(row=5, column=3)
 
-b4 = Button(win, text= 'View all', widh=12,pady=5)
+b4 = Button(win, text= 'View all', widh=12,pady=5, command=view_command)
 b4.grid(row=6, column=3)
 
 b5 = Button(win, text= 'Close', widh=12,pady=5,command= win.destroy)
